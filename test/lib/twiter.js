@@ -26,12 +26,12 @@ describe("The twitter module", () => {
     sandbox.stub(axios, "get").resolves({ data: "foo" });
     let response = await twitter.get("/api");
     expect(response).to.equal("foo");
-    axios.restore();
+    axios.get.restore();
   });
   it("Should invoke POST APIs", async () => {
     sandbox.stub(axios, "post").resolves({ data: "bar" });
-    let response = twitter.post("/api", "stuff");
+    let response = await twitter.post("/api", "stuff");
     expect(response).to.equal("bar");
-    axios.restore();
+    axios.post.restore();
   });
 });
