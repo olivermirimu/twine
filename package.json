@@ -41,6 +41,7 @@
     "promise-streams": "^2.1.1",
     "sinon": "^9.2.3",
     "split2": "^3.2.2",
+    "stream-mock": "^2.0.5",
     "through2": "^4.0.2"
   },
   "devDependencies": {
