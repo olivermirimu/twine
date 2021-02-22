@@ -7,7 +7,6 @@ const JSONStream = require("JSONStream");
 const CredentialManager = require("../lib/credential-manager");
 const Twitter = require("../lib/twitter");
 const batch = require("../lib/batch-stream");
-const { useFakeServer } = require("sinon");
 
 const doLookup = async (api, name, items, inout = process) => {
   let creds = new CredentialManager(name);
