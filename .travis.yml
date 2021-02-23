@@ -2,4 +2,5 @@ language: node_js
 node_js: lts_v14.x
 addons:
   apt:
-    packages: -libsecret-1-0
+    packages:
+      - libsecret-1-0
