@@ -1,11 +1,13 @@
 {
-  "name": "twine",
+  "name": "@olivernico/twine",
   "version": "1.0.0",
   "description": "",
   "bin": {
     "twine": "./bin/twine.js"
   },
-  "main": "index.js",
+  "publicConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "nyc mocha --recursive"
   },
@@ -42,7 +44,8 @@
     "sinon": "^9.2.3",
     "split2": "^3.2.2",
     "stream-mock": "^2.0.5",
-    "through2": "^4.0.2"
+    "through2": "^4.0.2",
+    "update-notifier": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "^7.18.0",

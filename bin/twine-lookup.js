@@ -7,7 +7,9 @@ program.version(pkg.version);
 program
   .command("users [screen_names]")
   .description("Find users by their screen name")
-  .action((names) => lookup.users(pkg.name, names).catch(util.handleError));
+  .action((names) =>
+    lookup.users(util.extractName(pkg.name), names).catch(util.handleError)
+  );
 
 program.parse(process.argv);
 

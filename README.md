@@ -35,6 +35,6 @@ A command line application hat allows a user to make posts and carry out other t
 - You can then interact with twitter using the following commands:
   > - To lookup specific user:
   ```
-  twine lookup
+  twine lookup <username>
   ```
   > - To lookup
