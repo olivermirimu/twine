@@ -1,5 +1,8 @@
 const chai = require("chai");
 const expect = chai.expect;
+const keytar = require("keytar");
+const sinon = require("sinon");
+const _ = require("lodash")
 const fs = require("fs-extra");
 const path = require("path");
 const chaiAsPromised = require("chai-as-promised");
@@ -9,8 +12,23 @@ const CredentialManager = require("../../lib/credential-manager");
 chai.use(chaiAsPromised);
 chai.use(dirtyChai);
 describe("The credential manager", () => {
+  let secrets = {};
   let creds;
   before(() => {
+    sinon.stub(keytar, "setPassword").callsFake((service, key, secret) => {
+      _.set(secrets, `${service}.${key}`, secret);
+      return Promise.resolve();
+    });
+    sinon.stub(keytar, "getPassword").callsFake((service, key) => {
+      let value = _.get(secrets, `${service}.${key}`);
+      return value
+        ? Promise.resolve(value)
+        : Promise.reject(new Error("Missing consumer secret"));
+    });
+    sinon.stub(keytar, "deletePassword").callsFake((service, key) => {
+      _.unset(secrets, `${service}.${key}`);
+      return Promise.resolve();
+    });
     creds = new CredentialManager("twine-test");
   });
   it("Should return credentials set in the environment", async () => {
@@ -56,6 +74,9 @@ describe("The credential manager", () => {
   });
   after(async () => {
     await creds.clearAll();
+    keytar.setPassword.restore();
+    keytar.getPassword.restore();
+    keytar.deletePassword.restore();
     await fs.unlink(
       path.join(process.env.HOME, ".config", "configstore", "twine-test.json")
     );
