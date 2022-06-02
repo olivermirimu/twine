@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- lts/*
+addons:
+  apt:
+    packages:
+    - libsecret-1-0
+deploy:
+  provider: npm
+  api_key:
+    secure: LtyafqlpWKe7dlOHbL+kuons3Xre9kUh6ouuKTfmNKKYSy0DQbblk0M/MzdXdgZFsk/e9mOBq4SdL346ddGHAPESYYLiBudTTyIOwV4nPVs81jDwRqjACZYNC7sJRbOjq+fgeAkDcj7ffqauEl47xQot/ZD5eGIC0o6CGQl2E8K7ZJhXFBBHcFqWLcNqHQsHL1u23KQIlTRziuY2HpZRYrtTU8O3SN/SGBbOtMODWn0hNHoraX8UPFWoV4cIGepKppKiV/L3nDnklCcV4viQdNvKFTA7Lx+PQX2tyStIRgOPL+j6uq64Ulmm22QiGOBQT37Lb1+t++00r58mo/rD4l11MMk/jgmwcMtX75SrnpmQk2UNdBCe0up8MoKLwkLiwDviwQYTg9SOSs+H1lPPr4JK1HMfWNQIsNdLwWRFLL24QDGU72LPepXwjlROyMfOYx9zTyR6pIninqkB2SypmSoeyS0vUpA36R/7RZ6GObZ7k/xXl+XoemAzCSS9ePxoX6JZWaegha2g+y2epHswbKQ6EH0H2BiDXY575vRNy0nhf2SUg7SvN8nSAaN33uCUJYNaJo/P3ZFjhxuyBL1HtcmluJl0AcTtBgOFfLF6oVdtq0qsUXyXIdSGChos0bIgPOB/sEh3+5uOb0e8gLYXrwtZQ88GZjxFvNHQmoUIZH8=
+  on:
+    tags: true
+    repo: olivermirimu/twine
+    branch: main
+  skip_cleanup: 'true'
+  email:
+    secure: apuhKBYIsvk/vWNWDrbMx+PFM+JBm6o0PB5LOLBla5DoMZn9/+JWD/1PqnNqXVQr+3Z1waXaK5lszw8UrvQMzuT33niS0oEYVuEtb/Iy6TLPX62OETPQPqV0T3YGYOv2pwUYMSXfYHUMcb9c6HG9roPyptYAVyEmkoPsnnUd+48TVGn1dQLRNHs7Kp7LSi3Q8IXteMZrPT4DBtrtdcUOyeAt3+35QdNRywuyD5+enBdwo/vBQQrrrU/nwEBQL4hS66izGsxQ37P4gf5IDkgArf2Lt7Cc0f8oje5vVnffyOB2bOXicVQpwwKPkt//9HGI5oIN9A+OVumVFG642+xc3y8nwTUAccdfiZEJrjChA0bHEhR3/EtOR/Pz/Tb/9e0hJEN//3e+My6Dxzi3RVw6TkN/QVwjlZI07P4legyh8/WNTxOMzAa93ZM7PyPCEXovs4urxNiR4cvjirM9KccDIw/jMZT6Df9pOt36yhrPW5kqzXM9ACWhS2DgEffKYFiFLSKCYOs0V3a8sl1TBQHcfEzOHsXYk3LBwTkmjCxvy6WPs8MVSNiiajMwe9vE8pGC4lLRhpMpz7ueJx+6wtuouReAIk4PXIEqEhvGpglPIyxvIhAQeRdTL2zMo1m9ft3qJE5Bt3gYiloGUh76nelz7cPxwUy/IhBOq+NtmhaWkhA=
