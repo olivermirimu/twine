@@ -6,7 +6,8 @@
     "twine": "./bin/twine.js"
   },
   "publicConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/@olivermirimu-twine"
   },
   "scripts": {
     "test": "nyc mocha --recursive"
